@@ -49,7 +49,7 @@ export function SpacesListPage() {
       ) : spaces === null ? null : spaces.length === 0 ? (
         <EmptyState
           title="No spaces yet"
-          description="Create your first space and upload a document to start asking it questions."
+          description="Create your first space, add your content, invite people and start asking it questions."
           action={<Button onClick={() => setShowCreate(true)}>Create your first space</Button>}
         />
       ) : (

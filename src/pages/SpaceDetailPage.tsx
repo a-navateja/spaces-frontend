@@ -65,7 +65,7 @@ export function SpaceDetailPage() {
         ← All spaces
       </Link>
 
-      <div className="grid grid-cols-[300px_1fr] gap-6 items-start h-[calc(100vh-160px)] max-[900px]:grid-cols-1 max-[900px]:h-auto">
+      <div className="grid grid-cols-[300px_1fr] gap-6 h-[calc(100vh-160px)] min-h-0 max-[900px]:grid-cols-1 max-[900px]:h-auto">
         <aside className="bg-white border border-paper-line rounded-md p-6 flex flex-col gap-3.5 h-full overflow-y-auto">
           <span
             className="w-[38px] h-[38px] rounded-[11px] bg-[linear-gradient(135deg,var(--color-ink-800),var(--color-violet-500))]"
@@ -119,7 +119,7 @@ export function SpaceDetailPage() {
           {addedMembers.length > 0 ? (
             <div className="border-t border-paper-line pt-3.5">
               <h4 className="text-xs uppercase [letter-spacing:0.04em] text-muted mb-2 font-semibold">
-                Added this session
+                Added to this Space
               </h4>
               <ul className="list-none m-0 p-0 flex flex-col gap-1.5 text-[13px]">
                 {addedMembers.map((email, i) => (
@@ -132,7 +132,7 @@ export function SpaceDetailPage() {
           ) : null}
         </aside>
 
-        <section className="h-full max-[900px]:h-[60vh]">
+        <section className="h-full min-h-0 max-[900px]:h-[60vh]">
           <ChatBox spaceId={space.id} />
         </section>
       </div>

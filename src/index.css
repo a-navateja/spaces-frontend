@@ -1,4 +1,5 @@
 @import "tailwindcss";
+/* @plugin "@tailwindcss/typography"; */
 
 @theme {
   /* Color — "ink & paper": a knowledge-library palette. Deep indigo stands in for

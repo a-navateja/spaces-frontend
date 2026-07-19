@@ -63,13 +63,13 @@ export function SignupRequestPage() {
             <Button type="submit" fullWidth isLoading={isLoading}>
               Get started
             </Button>
-            <p className="text-center text-xs text-muted">
+            {/* <p className="text-center text-xs text-muted">
               By submitting, you agree to Spaces&rsquo;{" "}
               <a href="#" className="text-body font-semibold no-underline hover:text-accent-strong">
                 Terms of Service
               </a>{" "}
               and Privacy Policy
-            </p>
+            </p> */}
           </form>
           <p className="mt-[22px] text-center text-[13.5px] text-muted">
             Already have an account?{" "}

@@ -2,6 +2,7 @@ import { useState, type FormEvent } from "react";
 import { spacesApi } from "../../api/spaces";
 import { ApiError } from "../../api/client";
 import type { QaTurn } from "../../types/spaces";
+import ReactMarkdown from "react-markdown";
 
 export function ChatBox({ spaceId }: { spaceId: string }) {
   const [turns, setTurns] = useState<QaTurn[]>([]);
@@ -26,8 +27,8 @@ export function ChatBox({ spaceId }: { spaceId: string }) {
   };
 
   return (
-    <div className="flex flex-col h-full bg-white border border-paper-line rounded-md overflow-hidden">
-      <div className="thin-scroll flex-1 overflow-y-auto p-6 flex flex-col gap-5">
+    <div className="flex h-full min-h-0 flex-col bg-white border border-paper-line rounded-md overflow-hidden">
+      <div className="thin-scroll flex-1 min-h-0 overflow-y-auto p-6 flex flex-col gap-5">
         {turns.length === 0 ? (
           <div className="m-auto flex flex-col items-center gap-2.5 text-muted text-[13.5px] text-center max-w-[240px]">
             <span
@@ -52,7 +53,9 @@ export function ChatBox({ spaceId }: { spaceId: string }) {
                 ) : turn.error ? (
                   <span className="text-danger">{turn.error}</span>
                 ) : (
-                  turn.answer
+                  <div className="prose prose-sm max-w-none prose-headings:mb-2 prose-p:my-2 prose-ul:my-2 prose-ol:my-2 prose-li:my-1">
+                    <ReactMarkdown>{turn.answer ?? ""}</ReactMarkdown>
+                  </div>
                 )}
               </div>
             </div>
@@ -60,7 +63,7 @@ export function ChatBox({ spaceId }: { spaceId: string }) {
         )}
       </div>
 
-      <form className="flex gap-2.5 p-3.5 border-t border-paper-line" onSubmit={handleSubmit}>
+      <form className="flex-shrink-0 flex gap-2.5 p-3.5 border-t border-paper-line bg-white" onSubmit={handleSubmit}>
         <input
           className="flex-1 h-11 px-4 rounded-sm border border-paper-line text-sm focus:border-violet-500 focus:outline-none focus:shadow-[0_0_0_3px_rgba(106,90,168,0.15)]"
           placeholder="Ask a question about this space's documents…"

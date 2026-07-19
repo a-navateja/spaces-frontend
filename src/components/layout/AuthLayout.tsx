@@ -3,19 +3,16 @@ import { useEffect, useState, type ReactNode } from "react";
 const CAPTIONS = [
   {
     quote:
-      "I stopped skimming forty-page zoning reports. I ask Spaces what changed since last quarter and get an answer with the page number.",
-    role: "Planning director, county government",
+      "Create private spaces and collaborate securely with trusted members while keeping your knowledge protected.",
   },
   {
     quote:
-      "Onboarding used to mean pointing new hires at a shared drive. Now they just ask the space and get a straight answer.",
-    role: "Head of operations, mid-size firm",
+      "Publish public knowledge spaces and let anyone explore your knowledge through natural language conversations.",
   },
   {
     quote:
-      "We uploaded a decade of engineering specs in an afternoon. Search that used to take a junior engineer a day now takes ten seconds.",
-    role: "Engineering lead, infrastructure team",
-  },
+      "Ask questions across your documents in natural language. Get answers instantly, without having to read through them.",
+  }
 ];
 
 export function AuthLayout({ children }: { children: ReactNode }) {
@@ -71,16 +68,19 @@ export function AuthLayout({ children }: { children: ReactNode }) {
           <p className="font-display italic font-medium text-[clamp(20px,2.4vw,27px)] leading-[1.45] text-on-ink">
             &ldquo;{CAPTIONS[active].quote}&rdquo;
           </p>
-          <p className="mt-4 text-[13px] text-on-ink-muted font-mono [letter-spacing:0.02em]">
+          {/* <p className="mt-4 text-[13px] text-on-ink-muted font-mono [letter-spacing:0.02em]">
             {CAPTIONS[active].role}
-          </p>
+          </p> */}
         </div>
 
         <div className="relative flex gap-2">
           {CAPTIONS.map((_, i) => (
-            <span
+            <button
               key={i}
-              className={`w-5 h-[3px] rounded-[2px] transition-[background] duration-300 ease-in-out ${
+              type="button"
+              onClick={() => setActive(i)}
+              aria-label={`Show message ${i + 1}`}
+              className={`h-[3px] w-5 rounded-[2px] transition-[background] duration-300 ease-in-out ${
                 i === active ? "bg-accent" : "bg-[rgba(255,255,255,0.2)]"
               }`}
             />

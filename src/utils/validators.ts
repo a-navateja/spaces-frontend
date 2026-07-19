@@ -8,5 +8,6 @@ export const passwordIssue = (value: string): string | null => {
   if (!/[A-Z]/.test(value)) return "Add at least one uppercase letter.";
   if (!/[a-z]/.test(value)) return "Add at least one lowercase letter.";
   if (!/[0-9]/.test(value)) return "Add at least one number.";
+  if (!/[^A-Za-z0-9]/.test(value)) return "Add at least one special character.";
   return null;
 };

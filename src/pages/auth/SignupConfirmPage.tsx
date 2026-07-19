@@ -47,15 +47,28 @@ export function SignupConfirmPage() {
         subtitle="Almost there — choose a password to finish creating your account."
       />
       <form className="flex flex-col gap-[18px]" onSubmit={handleSubmit} noValidate>
-        <Input
-          label="Password"
-          type="password"
-          placeholder="At least 8 characters"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          error={error ?? undefined}
-          autoComplete="new-password"
-        />
+        <div className="rounded-sm border border-paper-line bg-paper px-3 py-2.5 text-[12.5px] text-muted">
+            <p className="mb-1 font-semibold text-body">Password requirements</p>
+            <ul className="m-0 list-disc pl-4 space-y-1">
+              <li>At least 8 characters</li>
+              <li>At least one uppercase letter</li>
+              <li>At least one lowercase letter</li>
+              <li>At least one number</li>
+              <li>At least one special character</li>
+            </ul>
+          </div>
+        <div className="flex flex-col gap-2">
+          <Input
+            label="Password"
+            type="password"
+            placeholder="Enter a strong password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            error={error ?? undefined}
+            autoComplete="new-password"
+          />
+          
+        </div>
         <Input
           label="Confirm password"
           type="password"
