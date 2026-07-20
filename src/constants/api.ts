@@ -1,4 +1,4 @@
-// Mirrors app/utils/routes.py on the backend — keep in sync.
+// Mirrors app/utils/routes.py on the backend — should keep in sync.
 
 export const API_BASE_URL = import.meta.env.VITE_API_BASE_URL as string;
 
