@@ -7,7 +7,7 @@
 export const API_BASE_URL =
   window.__ENV__?.VITE_API_BASE_URL || (import.meta.env.VITE_API_BASE_URL as string);
 
-export const prefix = "/api/v1/spaces-api";
+export const prefix = "/api/v1/spaces-app";
 
 export const AUTH = {
   VERIFY_EMAIL: `${prefix}/auth/verify-email`,

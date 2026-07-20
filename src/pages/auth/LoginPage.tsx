@@ -29,6 +29,7 @@ export function LoginPage() {
     setIsLoading(true);
     try {
       const session = await authApi.login({ email: email.trim().toLowerCase(), password });
+      console.log("Login successful:", session);
       setSession(session);
       navigate(ROUTES.SPACES);
     } catch (err) {
