@@ -1,8 +1,13 @@
-// Mirrors app/utils/routes.py on the backend — should keep in sync.
+// Mirrors app/utils/routes.py on the backend — keep in sync.
 
-export const API_BASE_URL = import.meta.env.VITE_API_BASE_URL as string;
+// Runtime-configured in prod: docker-entrypoint.sh regenerates /env.js from
+// the container's env vars at startup, so one built image can be deployed
+// to any environment without a rebuild. Falls back to the build-time Vite
+// env var for local dev (`npm run dev`), where env.js isn't regenerated.
+export const API_BASE_URL =
+  window.__ENV__?.VITE_API_BASE_URL || (import.meta.env.VITE_API_BASE_URL as string);
 
-export const prefix = "/api/v1/spaces-app";
+export const prefix = "/api/v1/spaces-api";
 
 export const AUTH = {
   VERIFY_EMAIL: `${prefix}/auth/verify-email`,
